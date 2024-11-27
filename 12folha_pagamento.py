@@ -11,12 +11,16 @@ elif (900 < salario_bruto <= 1500):
 elif (1550 < salario_bruto <= 2500):
     ir = 0.1
 
-sindicato = salario_bruto * 0.3
+sindicato = salario_bruto * 0.03
 fgts      = salario_bruto * 0.11
-salario_liquido = salario_bruto - (sindicato + (salario_bruto * ir))
+inss      = salario_bruto * 0.10
+descontos = ir + inss + sindicato
+salario_liquido = salario_bruto - descontos
 
-print(f"Sálario bruto: {vlr_hora} * {qtd_horas} = {salario_bruto}")
-print(f"IR: {salario_bruto * ir}")
+print(f"Sálario bruto: ({vlr_hora} * {qtd_horas}) = R${salario_bruto}")
+print(f"(-)IR: {salario_bruto * ir}")
+print(f"(-)INSS: {salario_bruto * ir}")
+print(f"(-)Sindicato: {sindicato}")
 print(f"FGTS: {fgts}")
-print(f"Total de descontos: {(salario_bruto * ir) + fgts}")
-
+print(f"Total de descontos: R${descontos}")
+print(f"Salário líquido: R${salario_liquido}")
